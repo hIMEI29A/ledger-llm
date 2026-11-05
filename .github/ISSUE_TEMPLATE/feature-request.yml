@@ -1,0 +1,99 @@
+name: Feature Request
+description: Suggest a new feature or improvement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: task_number
+    attributes:
+      label: task_number
+      description: Task number from Project Management System
+    validations:
+      required: false
+
+  - type: textarea
+    id: project
+    attributes:
+      label: project
+      description: Project name from Project Management System
+    validations:
+      required: false
+
+  - type: textarea
+    id: is_blocker
+    attributes:
+      label: is_blocker
+      description: Is this issue are blocker for another
+    validations:
+      required: false
+
+  - type: textarea
+    id: blocked_by
+    attributes:
+      label: blocked_by
+      description: Which issue blocks
+    validations:
+      required: false 
+        
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the suggestion!  
+        The more details you provide, the better we can evaluate the idea.
+
+  - type: checkboxes
+    id: existing-issue
+    attributes:
+      label: Search existing issues
+      description: Have you searched for similar requests before creating a new one?
+      options:
+        - label: I have checked that this request does not already exist
+          required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this feature solve?
+      description: Describe the problem or inconvenience you want to solve
+      placeholder: Currently users have to manually... This takes a lot of time.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: How do you envision this feature being implemented?
+      placeholder: Add a button / capability / integration with...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other solutions have you already tried or considered?
+      placeholder: It could be done via..., but that is inconvenient because...
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Mockups, examples from other products, screenshots, links, etc.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: How important is this to you?
+      options:
+        - Critical (blocks work)
+        - High priority
+        - Would be convenient
+        - Just an idea / nice to have
+      default: 2
+    validations:
+      required: true

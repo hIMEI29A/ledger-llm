@@ -1,0 +1,113 @@
+name: Research Needed
+description: Investigation is required before making a decision or implementation
+title: "[Research]: "
+labels: ["research", "needs-triage"]
+body:
+  - type: textarea
+    id: task_number
+    attributes:
+      label: task_number
+      description: Task number from Project Management System
+    validations:
+      required: false
+
+  - type: textarea
+    id: project
+    attributes:
+      label: project
+      description: Project name from Project Management System
+    validations:
+      required: false
+
+  - type: textarea
+    id: is_blocker
+    attributes:
+      label: is_blocker
+      description: Is this issue are blocker for another
+    validations:
+      required: false
+
+  - type: textarea
+    id: blocked_by
+    attributes:
+      label: blocked_by
+      description: Which issue blocks
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when research is needed before making a decision or implementing something.
+        Please describe the question as specifically as possible.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question / What needs to be researched
+      description: Clearly formulate the question that needs to be answered
+      placeholder: For example Which approach is better for... / Should we switch to... / How does... work
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and motivation
+      description: Why is this research needed? What problem or decision will it help with?
+      placeholder: We are considering the possibility of... / We hit a limitation... / We want to understand whether we should...
+    validations:
+      required: true
+
+  - type: textarea
+    id: goals
+    attributes:
+      label: Research goals
+      description: What should the outcome be? (report, comparison, recommendation, PoC, etc.)
+      placeholder: |
+        - Compare 2–3 approaches
+        - Identify risks and limitations
+        - Provide a clear recommendation: do / don't do / do with caveats
+    validations:
+      required: true
+
+  - type: textarea
+    id: known-info
+    attributes:
+      label: What is already known
+      description: Any existing information, links, previous discussions
+      placeholder: Links to documentation, issues, articles, internal notes...
+    validations:
+      required: false
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and requirements
+      description: Technical, time, or business constraints that must be considered
+      placeholder: Deadline — 1–2 weeks / Cannot use paid services / Must work offline, etc.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - High (blocks a decision)
+        - Medium
+        - Low (when time allows)
+      default: 1
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Definition of Done
+      description: When can the research be considered complete?
+      placeholder: |
+        - A short report / comparison table exists
+        - A clear recommendation is provided
+        - Results have been discussed with the team
+    validations:
+      required: false
