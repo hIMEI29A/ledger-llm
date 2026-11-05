@@ -1,0 +1,28 @@
+schema: spec-driven
+
+# Project context: constraints an agent cannot infer from the code (greenfield repo).
+# The full planner brief lives in docs/prompt.md.
+context: |
+  Project: ledger-llm — a batch-oriented LLM router in Go, exposed as a high-performance
+  HTTP/gRPC proxy in front of heterogeneous LLM backends (local, mid-tier, high-end).
+
+  Hard constraints for every artifact:
+  - Batch-first framing: admission, classification, grouping, dispatch, and reconciliation
+    are designed as batched stages, not per-request where avoidable.
+  - Concurrency model: lock-free by default. Go channels are the inter-stage boundaries;
+    sync.Pool, sync/atomic, sync.Once, and sync.WaitGroup only where strictly necessary.
+    Mutex-guarded hot paths are disallowed; state the lock-free invariant per stage.
+  - Classifier: pure Go, sub-millisecond to ~1 ms, no external inference call in the hot path.
+  - Three routing tiers: local self-hosted model, mid-tier (e.g. gpt-4o-mini), high-end
+    (e.g. Claude / GPT-4o).
+  - Scope boundary: OSS core = router + request-metrics tracker. Commercial/gated =
+    billing dashboard and FinOps cost-allocation engine.
+  - Treat the repo as greenfield: no application code exists yet; do not assume existing
+    packages, configs, or deployment tooling.
+  - Artifacts are written in English. OpenSpec structural headings and SHALL/MUST keywords
+    stay in English.
+  - Planning artifacts only; no production code, tests, or build files in this change.
+
+  Open questions that must stay visible until resolved: batching latency vs tail latency,
+  classifier accuracy vs cost savings, tenant isolation, provider rate limits, and the
+  classifier's feature set and threshold calibration.
