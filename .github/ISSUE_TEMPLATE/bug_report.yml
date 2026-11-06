@@ -1,0 +1,130 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: textarea
+    id: task_number
+    attributes:
+      label: task_number
+      description: Task number from Project Management System
+    validations:
+      required: false
+
+  - type: textarea
+    id: project
+    attributes:
+      label: project
+      description: Project name from Project Management System
+    validations:
+      required: false
+
+  - type: textarea
+    id: is_blocker
+    attributes:
+      label: is_blocker
+      description: Is this issue are blocker for another
+    validations:
+      required: false
+
+  - type: textarea
+    id: blocked_by
+    attributes:
+      label: blocked_by
+      description: Which issue blocks
+    validations:
+      required: false
+       
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug!  
+        Please fill out the form as completely as possible.
+
+  - type: checkboxes
+    id: existing-issue
+    attributes:
+      label: Search existing issues
+      description: Have you searched for similar issues before creating a new one?
+      options:
+        - label: I have checked that this issue does not already exist
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug description
+      description: What happened? Be clear and concise.
+      placeholder: For example When clicking the "Save" button, the application crashes
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Detailed steps to reproduce the problem
+      placeholder: |
+        1. Open the page ...
+        2. Click on ...
+        3. Enter ...
+        4. See the error
+      value: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+      placeholder: The application should save the data and show a notification
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happened?
+      placeholder: The application froze / crashed / showed a 500 error
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Information about the system, version, etc.
+      value: |
+        - OS: 
+        - Browser / App version: 
+        - Version: 
+      render: markdown
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Screenshots / Additional information
+      description: Attach logs, screenshots, or any other useful information
+      render: shell
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical (application is unusable)
+        - High (core functionality is broken)
+        - Medium (inconvenience, workaround exists)
+        - Low (minor visual bug)
+      default: 2
+    validations:
+      required: true
