@@ -3,9 +3,20 @@
 
 This document defines the Git workflow and conventions that AI agents must follow when working on this project.
 
+## Branch flow
+
+`main` is the mainline and `dev` is the integration branch. Work moves through four steps:
+
+1. Create a task branch from `main`.
+2. Commit changes on the task branch.
+3. Open a pull request from the task branch into `dev`.
+4. Open a pull request from `dev` into `main` to integrate reviewed work into the mainline.
+
+Task branches never target `main` directly, and only `dev` targets `main`.
+
 ## Branching
 
-- Always start a new task branch from the `main` branch.
+- Always start a new task branch from the current `main`; fetch and fast-forward `main` before branching.
 - Create a feature branch using the following naming template:  
   
 ```text  
@@ -64,7 +75,8 @@ Where:
 - If the PR closes an issue, begin the PR description with:Closes: #[issue-number]
 - Provide a concise overview of the problem and the changes made. Avoid boilerplate text.
 - Check the list of available labels in the repository and suggest the most appropriate ones. Always ask the user to confirm the suggested labels before applying them.
-- If the branch was created from a branch other than `main`, set the PR base branch accordingly (do not default to `main`).
+- Task-branch pull requests target `dev`, never `main`.
+- The only pull request that targets `main` is the `dev` → `main` integration PR.
 
 ## Issues
 
