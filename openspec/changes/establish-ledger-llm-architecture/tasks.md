@@ -3,7 +3,7 @@
 ## 1. Milestone 0 — Repository and contracts
 
 - [x] 1.1 Initialize the Go module at the repository's canonical path and add `go.mod`/`go.sum`; verify `go build ./...` succeeds on a clean checkout.
-- [ ] 1.2 Create the package layout from design D1 (`cmd/ledger-llm`, `api/proto`, `api/gen`, `pkg/adapter`, `internal/*`) with minimal `doc.go` files; verify `go list ./...` returns every package and no import cycles exist.
+- [x] 1.2 Create the package layout from design D1 (`cmd/ledger-llm`, `api/proto`, `api/gen`, `pkg/adapter`, `internal/*`) with minimal `doc.go` files; verify `go list ./...` returns every package and no import cycles exist.
 - [ ] 1.3 Add a `Makefile` with `build`, `test`, `test-race`, `lint`, `bench`, and `generate` targets; verify each target runs locally.
 - [ ] 1.4 Add CI (GitHub Actions) running `go vet`, `go test -race ./...`, and `golangci-lint`; verify the workflow passes on the initial commit.
 - [ ] 1.5 Define `api/proto/ledger/v1/inference.proto` per design D8 and generate Go/gRPC stubs; verify `make generate` is reproducible and `go build ./...` passes with generated code.
